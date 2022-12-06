@@ -5,90 +5,38 @@ header {
     margin-right: auto;
 }
 
-#upper {
-	margin-left: auto;
-    margin-right: auto;
-	display: flex;
-	flex-flow: row wrap;
-	width: 23em;
+h3 {
+	text-align: center;
+}
+
+h4 {
+	margin-left: 2em;
+}
+
+#dataPanel {
+	margin: auto;
+	width: 50%;
 	background: #FAFAFA;
-	align-items: center;
-	justify-content: center;
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: 1.5em;
 }
 
-#matrix1, #matrix2{
-	order: 1;
-	width: 9em;
-	height: 40%;
+#individualList {
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: 1fr;
+	justify-items: stretch;
+	row-gap: 0.7em;
 }
 
-#operations {
-	order: 1;
-	width: 5em;
-	height: 40%;
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: center;
+.groupSize, .functionButton {
+	width: 50%;
+	margin: auto;
 }
 
-.operation {
-	width: 5em;
-	height: 10%
-}
-
-.parent {
-	display: flex;
-	flex-flow: row wrap;
-	width: 9em;
-	background: #FAFAFA;
-	align-items: center;
-	justify-content: center;
-}
-
-.title {
-	order: 1;
-	font-family: "Times New Roman", serif;
-	width: 9em;
-	height: 10%;
-	text-align: center;
-}
-
-.m1r1, .m2r1 {
-	order: 2;
-	width: 3em;
-	height: 10%;
-	text-align: center;
-}
-
-.m1r2, .m2r2 {
-	order: 3;
-	width: 3em;
-	height: 10%;
-	text-align: center;
-}
-
-.m1r3, .m2r3 {
-	order: 4;
-	width: 3em;
-	height: 10%;
-	text-align: center;
-}
-
-.functions {
-	order: 5;
-	width: 9em;
-	height: 40%;
-	display: flex;
-	flex-flow: row wrap;
-	align-items: center;
-	justify-content: center;
-}
-
-.function {
-	width: 8em;
-	height: 10%;
-	border-radius: 2em;
+#markList {
+	width: 90%;
 }
 
 #console {
