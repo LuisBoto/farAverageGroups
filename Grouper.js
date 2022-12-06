@@ -27,18 +27,19 @@ class Grouper {
 
 	getGroups() {
 		let groups = [];
-		this.individuals.sort((a, b) => parseFloat(a.average) - parseFloat(b.average));
+		let individuals = JSON.parse(JSON.stringify(this.individuals));
+		individuals.sort((a, b) => parseFloat(a.average) - parseFloat(b.average));
 		let groupSize = document.getElementById("groupSizeField").value
 		let oddGroup = [], count = 0;
-		while (this.individuals.length % groupSize != 0) {
-			oddGroup.push(this.individuals[this.individuals.length/groupSize*count])
-			this.individuals.splice(this.individuals.length/groupSize*count, 1);
+		while (individuals.length % groupSize != 0) {
+			oddGroup.push(individuals[individuals.length/groupSize*count])
+			individuals.splice(individuals.length/groupSize*count, 1);
 		}
 		if (oddGroup.length > 0) groups.push(oddGroup);
-		for (let i=0; i<this.individuals.length/groupSize; i++) {
+		for (let i=0; i<individuals.length/groupSize; i++) {
 			let group = [];
 			for (let j=0; j<groupSize; j++) {
-				group.push(this.individuals[this.individuals.length/groupSize*j + i])
+				group.push(individuals[individuals.length/groupSize*j + i])
 			}
 			groups.push(group);
 		}
