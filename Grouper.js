@@ -34,6 +34,7 @@ class Grouper {
 			oddGroup.push(this.individuals[this.individuals.length/groupSize*count])
 			this.individuals.splice(this.individuals.length/groupSize*count, 1);
 		}
+		if (oddGroup.length > 0) groups.push(oddGroup);
 		for (let i=0; i<this.individuals.length/groupSize; i++) {
 			let group = [];
 			for (let j=0; j<groupSize; j++) {
