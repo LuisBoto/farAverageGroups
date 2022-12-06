@@ -12,11 +12,12 @@
 	<div id="dataPanel">
 		<h3>Name, Marks:</h3>
 		<div id="individualList">
-			<h4 id="individual0">n0: </h4><input type="text" class="markList">
+			<h4 id="individual0">n1: </h4><input type="text" class="markList" value="10 5.5 7.8 9.4 6.0">
 		</div> 
 		<input type="button" onclick="addIndividual()" value="Add Individual" class="functionButton">
-		<h4 class="groupSize">Group size: </h4><input type="number" class="groupSize">
-		<input type="button" onclick="addIndividual()" value="Calculate Groups" class="functionButton">
+		<h4 class="groupSize">Group size: </h4>
+		<input type="number" class="groupSize" value="3" min="2" id="groupSizeField">
+		<input type="button" onclick="calculateGroups()" value="Calculate Groups" class="functionButton" id="getGroupsButton" disabled="true">
 	</div>
 	<br>
 	<div id="results">
