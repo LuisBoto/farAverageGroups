@@ -30,18 +30,25 @@ class Grouper {
 		let individuals = JSON.parse(JSON.stringify(this.individuals));
 		individuals.sort((a, b) => parseFloat(a.average) - parseFloat(b.average));
 		let groupSize = document.getElementById("groupSizeField").value
-		let oddGroup = [], count = 0, indexesToRemove = [];
-		while ((individuals.length-indexesToRemove.length) % groupSize != 0) {
-			let index = Math.ceil(individuals.length/groupSize*count);
-			if (index < individuals.length) {
-				oddGroup.push(individuals[index])
-				indexesToRemove.push(index);
-				count++;
+		
+		if (individuals.length%groupSize==1) {
+			groups.push([individuals[individuals.length/2]]);
+			individuals.splice(individuals.length/2, 1);
+		} else {
+			let oddGroup = [], count = 0, indexesToRemove = [];
+			while ((individuals.length-indexesToRemove.length) % groupSize != 0) {
+				let index = Math.ceil(individuals.length/groupSize*count);
+				if (index < individuals.length) {
+					oddGroup.push(individuals[index])
+					indexesToRemove.push(index);
+					count++;
+				}
 			}
+			if (oddGroup.length > 0) groups.push(oddGroup);
+			for (let i=0; i<indexesToRemove.length; i++) individuals[indexesToRemove[i]] = null;
+			individuals = individuals.filter(x => x);
 		}
-		if (oddGroup.length > 0) groups.push(oddGroup);
-		for (let i=0; i<indexesToRemove.length; i++) individuals[indexesToRemove[i]] = null;
-		individuals = individuals.filter(x => x);
+
 		for (let i=0; i<individuals.length/groupSize; i++) {
 			let group = [];
 			for (let j=0; j<groupSize; j++) {
